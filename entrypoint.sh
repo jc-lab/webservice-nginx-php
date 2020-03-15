@@ -45,11 +45,10 @@ chmod 755 /data
 addgroup nginx ${USER}
 
 # Generate unique ssh keys for this container, if needed
-if [ ! -f /etc/ssh/keys/ssh_host_ed25519_key ]; then
-    ssh-keygen -t ed25519 -f /etc/ssh/keys/ssh_host_ed25519_key -N ''
-fi
-if [ ! -f /etc/ssh/keys/ssh_host_rsa_key ]; then
-    ssh-keygen -t rsa -b 4096 -f /etc/ssh/keys/ssh_host_rsa_key -N ''
+
+if [[ ! -f /etc/ssh/keys/ssh_host_ed25519_key ]] && [[ ! -f /etc/ssh/keys/ssh_host_rsa_key ]]; then
+	ssh-keygen -t ed25519 -f /etc/ssh/keys/ssh_host_ed25519_key -N ''
+	ssh-keygen -t rsa -b 4096 -f /etc/ssh/keys/ssh_host_rsa_key -N ''
 fi
 
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
