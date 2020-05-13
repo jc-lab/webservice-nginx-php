@@ -1,4 +1,4 @@
-FROM alpine:3.9.4
+FROM alpine:3.11
 MAINTAINER Jichan <development@jc-lab.net>
 
 RUN apk --update add --no-cache python2 bash nginx supervisor openssh-server openssh-sftp-server php7-fpm php7-mcrypt php7-json php7-mysqli php7-iconv mariadb-client php7-ldap php7-curl php7-dom
