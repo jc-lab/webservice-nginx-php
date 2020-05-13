@@ -23,7 +23,7 @@ RUN chmod +x /docker_kill.py && chmod +x /entrypoint.sh
 EXPOSE 22 80
 
 # Optional
-RUN apk --update add --no-cache php7-session
+RUN apk --update add --no-cache php7-session php7-ctype
 
 CMD ["/bin/sh", "-c", "/entrypoint.sh"]
 
